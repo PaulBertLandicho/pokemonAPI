@@ -1,4 +1,4 @@
-const pokemonCount = 50;
+const pokemonCount = 30;
 const pokedex = {}; // {1 : {"name" : "bulbasaur", "img" : url, "types" : [...], "desc" : "...."} }
 
 window.onload = async function() {
@@ -8,8 +8,11 @@ window.onload = async function() {
         await getPokemon(i);
     }
 
+    
     // Generate Pokémon list items
+    function populatePokemonList() {
     const pokemonListElement = document.getElementById("pokemon-list");
+    pokemonListElement.innerHTML = '';
     for (let i = 1; i <= pokemonCount; i++) {
         let pokemonItem = document.createElement("div");
         pokemonItem.id = i;
@@ -24,9 +27,14 @@ window.onload = async function() {
         pokemonItem.addEventListener("click", updatePokemon);
         pokemonListElement.append(pokemonItem);
     }
+}
+    // Generate Pokémon list items
+    populatePokemonList();  
 
     // Display the first Pokémon description initially
     updatePokemon.call(document.querySelector(".pokemon-item"));
+        document.getElementById("search-bar").addEventListener("input", filterPokemonList);
+
 }
 
 async function getPokemon(num) {
@@ -166,3 +174,17 @@ function updatePokemon() {
         }, 500); // Adjust the timeout as needed (500ms = 0.5s)
     }
 
+    function filterPokemonList() {
+        const query = document.getElementById("search-bar").value.toLowerCase();
+        const pokemonItems = document.querySelectorAll(".pokemon-item");
+    
+        pokemonItems.forEach(item => {
+            const pokemonName = pokedex[item.id].name.toLowerCase();
+            if (pokemonName.includes(query)) {
+                item.style.display = "flex"; // Show item
+            } else {
+                item.style.display = "none"; // Hide item
+            }
+        });
+    }
+    

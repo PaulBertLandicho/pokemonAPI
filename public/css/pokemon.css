@@ -887,7 +887,7 @@ video {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  height: 413px; /* Adjust height as needed */
+  height: 385px; /* Adjust height as needed */
   overflow-y: auto; /* Enable vertical scrolling */
 }
 .pokemon-item {
@@ -988,6 +988,35 @@ video {
   display: none;
 }
 
+.search-container {
+top: 0%;
+}
+#search-bar {
+  padding-left: 3rem; /* Space for the icon */
+  border-radius: 9999px; /* Fully rounded */
+  justify-content: center;
+  border: 2px solid #4B5563; /* Subtle border */
+  background-color: #1F2937; /* Dark background */
+  color: #F9FAFB; /* Light text color */
+  font-size: 1rem; /* Font size */
+  transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem; /* Space from the left edge */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem; /* Slightly larger icon */
+  color: #9CA3AF; /* Placeholder text color */
+}
+
+.relative-container {
+  position: relative;
+  margin-left: 80px  ;
+}
+
 /* styles.css */
 
 /* Container for Pokémon list items */
@@ -1051,6 +1080,7 @@ video {
 #close-modal-btn:hover {
   background: #ddd;
 }
+
 /* Example CSS for Pokémon types */
 .type-grass { background-color: #7AC74C; }
 .type-fire { background-color: #F08030; }
