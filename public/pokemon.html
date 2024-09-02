@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/pokemon.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+</head>
+<body>
+<div id="splash-screen" class="splash-screen">
+    <!-- Replace with your image URL -->
+    <img src="https://png.pngtree.com/png-vector/20240218/ourmid/pngtree-3d-pokemon-ball-png-image_11751537.png" alt="Pokémon Logo">
+</div>
+<div class="banner">
+    <div class="navbar"></div>
+    <div class="content"></div>
+</div>
+    <div id="content-box" class="flex flex-col lg:flex-row gap-4 p-4">
+        <!-- Left Side, display pokemon info -->
+        <div id="pokemon-info" class="flex-1 bg-white bg-opacity-20 p-4 rounded-lg shadow-lg backdrop-filter backdrop-blur-md bg-[url('https://github.com/ImKennyYip/Pokedex/blob/master/pokemon-bg.jpg?raw=true')] bg-no-repeat bg-cover font-sans">
+            
+            <img id="pokemon-img" class="w-[160px] h-[160px]  mt-5 flex mx-auto cursor-pointer" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Pokemon Image">
+            <div id="pokemon-types" class="w-[230px] items-center mx-auto mt-2" >
+                <span class="px-2 py-1 mx-1 border border-white rounded-lg bg-green-600 text-white">GRASS</span>
+                <span class="px-2 py-1 mx-1 border border-white rounded-lg bg-purple-700 text-white">POISON</span>
+            </div>
+            <div id="pokemon-description" class="w-[250px] h-[10px] flex rounded-lg mx-auto mt-2 p-10 text-lg overflow-auto" style="margin-top: 20px; width: 300px;"">
+                <p>A strange seed was<br>
+                    planted on its<br>
+                    back at birth.The plant sprouts<br>
+                    and grows with<br>
+                    this POKéMON.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Right side, display pokemon list -->
+    <div id="pokemon-list" class="flex-1 mt-4 lg:mt-0">
+        <!-- Add more Pokémon items as needed -->
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="modal-content" class="modal-content">
+            <button id="close-modal-btn" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">
+            </button>
+            <div class="drag-icon"><span class="header-icon"></span></div>
+            <img id="modal-pokemon-img"  class=" mx-auto" style="width: 200px; height: 200px;">
+            <h2 id="modal-pokemon-name" style="color:orange; font-size: 50px; font-weight: bold;"></h2>
+                <div id="modal-pokemon-types" style="margin-left: 100px;"></div>
+                <div class="scrollable-section mt-4">
+                <div id="modal-pokemon-description" class="mt-4 p-4 text-lg"></div>
+                <div id="modal-pokemon-stats" class="mt-4">
+                    <h3 class="text-lg font-bold" style="color:black">Base Stats</h3>
+                    <ul id="modal-stats-list" class="list-disc pl-5"></ul>
+                </div>
+                <div id="modal-pokemon-evaluation" class="mt-4">
+                    <h3 class="text-lg font-bold" style="color:black; margin-top: 10px;">Evaluation</h3>
+                    <p id="modal-evaluation-text"></p>
+                </div>
+                <div id="modal-pokemon-moves" class="mt-4">
+                    <h3 class="text-lg font-bold" style="color:black; margin-top: 10px;">Moves</h3>
+                    <ul id="modal-moves-list" class="list-disc pl-5"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="pokemon.js"></script>  
+</body>
+</html>
